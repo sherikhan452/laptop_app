@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
 
 class Loginscreen extends StatelessWidget {
@@ -39,6 +40,26 @@ class Loginscreen extends StatelessWidget {
                 obsecTxt: true,
               ),
             ),
+            MyButton(onTop: () {}, text: "Sign In"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Not a Member",
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                Text(
+                  "Register",
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            )
           ],
         ),
       ),
