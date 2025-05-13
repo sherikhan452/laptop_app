@@ -16,8 +16,9 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Loginscreen(),
+      home: Loginscreen(onTop: () {},),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }
+

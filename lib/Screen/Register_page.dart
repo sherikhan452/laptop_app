@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
 
-class Loginscreen extends StatefulWidget {
-  final Function()? onTop;
-  const Loginscreen({required this.onTop,super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<Loginscreen> createState() => _LoginscreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginscreenState extends State<Loginscreen> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   
   Widget build(BuildContext context) {
@@ -51,7 +50,7 @@ class _LoginscreenState extends State<Loginscreen> {
            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+              const Text(
                   "Not a Member",
                   style:
                       TextStyle(color: Colors.black),
@@ -60,7 +59,7 @@ class _LoginscreenState extends State<Loginscreen> {
                   width: 4,
                 ),
                 GestureDetector(
-                  onTap:(){} ,
+                  onTap:(){},
                   child: const Text(
                     "Register",
                     style: TextStyle(
