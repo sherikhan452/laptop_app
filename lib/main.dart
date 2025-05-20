@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/Login_Screen.dart';
 import 'package:laptop_app/Theme/ThemeProvidor.dart';
+import 'package:laptop_app/auth/LoginAndRegister.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Loginscreen(),
+      debugShowCheckedModeBanner: false,
+      home: LoginAndRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }

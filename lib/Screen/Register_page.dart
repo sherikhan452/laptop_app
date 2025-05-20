@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:laptop_app/Screen/HomePage.dart';
 import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
 
-class Loginscreen extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function()? onTap;
-  const Loginscreen({required this.onTap, super.key});
+  const RegisterPage({required this.onTap, super.key});
 
   @override
-  State<Loginscreen> createState() => _LoginscreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginscreenState extends State<Loginscreen> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
-  void login() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ));
-  }
-
   Widget build(BuildContext context) {
     TextEditingController txtEmail = TextEditingController();
     TextEditingController txtPass = TextEditingController();
+    TextEditingController confPass = TextEditingController();
     return Scaffold(
       body: Center(
         child: Column(
@@ -56,9 +48,20 @@ class _LoginscreenState extends State<Loginscreen> {
               ),
             ),
             const SizedBox(
+              height: 20.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Textfield(
+                textController: txtPass,
+                hintText: "Password",
+                obsecTxt: true,
+              ),
+            ),
+            const SizedBox(
               height: 30,
             ),
-            MyButton(onTop: login, text: "Sign In"),
+            MyButton(onTop: () {}, text: "Sign In"),
             const SizedBox(
               height: 30,
             ),
@@ -71,12 +74,12 @@ class _LoginscreenState extends State<Loginscreen> {
                       TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                 ),
                 const SizedBox(
-                  width: 4,
+                  height: 30,
                 ),
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text(
-                    "Register",
+                    "Login",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.secondary,
                         fontWeight: FontWeight.bold),
