@@ -3,8 +3,12 @@ import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
 
 class RegisterPage extends StatefulWidget {
+<<<<<<< HEAD
   final Function()? onTap;
   const RegisterPage({required this.onTap, super.key});
+=======
+  const RegisterPage({super.key});
+>>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -12,10 +16,17 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   @override
+<<<<<<< HEAD
   Widget build(BuildContext context) {
     TextEditingController txtEmail = TextEditingController();
     TextEditingController txtPass = TextEditingController();
     TextEditingController confPass = TextEditingController();
+=======
+  
+  Widget build(BuildContext context) {
+    TextEditingController txtEmail = TextEditingController();
+    TextEditingController txtPass = TextEditingController();
+>>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
     return Scaffold(
       body: Center(
         child: Column(
@@ -47,6 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 obsecTxt: true,
               ),
             ),
+<<<<<<< HEAD
             const SizedBox(
               height: 20.0,
             ),
@@ -82,6 +94,26 @@ class _RegisterPageState extends State<RegisterPage> {
                     "Login",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.secondary,
+=======
+            MyButton(onTop: () {}, text: "Sign In"),
+           Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              const Text(
+                  "Not a Member",
+                  style:
+                      TextStyle(color: Colors.black),
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                GestureDetector(
+                  onTap:(){},
+                  child: const Text(
+                    "Register",
+                    style: TextStyle(
+                        color: Colors.black,
+>>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
                         fontWeight: FontWeight.bold),
                   ),
                 )
@@ -92,4 +124,8 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
