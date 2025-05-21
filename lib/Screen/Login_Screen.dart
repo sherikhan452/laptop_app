@@ -4,13 +4,8 @@ import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
 
 class Loginscreen extends StatefulWidget {
-<<<<<<< HEAD
   final Function()? onTap;
   const Loginscreen({required this.onTap, super.key});
-=======
-  final Function()? onTop;
-  const Loginscreen({required this.onTop,super.key});
->>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
 
   @override
   State<Loginscreen> createState() => _LoginscreenState();
@@ -18,7 +13,6 @@ class Loginscreen extends StatefulWidget {
 
 class _LoginscreenState extends State<Loginscreen> {
   @override
-<<<<<<< HEAD
   void login() {
     Navigator.push(
         context,
@@ -27,9 +21,6 @@ class _LoginscreenState extends State<Loginscreen> {
         ));
   }
 
-=======
-  
->>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
   Widget build(BuildContext context) {
     TextEditingController txtEmail = TextEditingController();
     TextEditingController txtPass = TextEditingController();
@@ -64,7 +55,6 @@ class _LoginscreenState extends State<Loginscreen> {
                 obsecTxt: true,
               ),
             ),
-<<<<<<< HEAD
             const SizedBox(
               height: 30,
             ),
@@ -73,34 +63,21 @@ class _LoginscreenState extends State<Loginscreen> {
               height: 30,
             ),
             Row(
-=======
-            MyButton(onTop: () {}, text: "Sign In"),
-           Row(
->>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
                   "Not a Member",
-                  style:
-                      TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black),
                 ),
                 const SizedBox(
                   width: 4,
                 ),
                 GestureDetector(
-<<<<<<< HEAD
                   onTap: widget.onTap,
                   child: Text(
                     "Register",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.secondary,
-=======
-                  onTap:(){} ,
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(
-                        color: Colors.black,
->>>>>>> a2ea24912bce15c60d5bed1f90497b12123dac36
                         fontWeight: FontWeight.bold),
                   ),
                 )
