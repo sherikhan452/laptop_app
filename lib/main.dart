@@ -2,13 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/Login_Screen.dart';
 import 'package:laptop_app/Theme/ThemeProvidor.dart';
 import 'package:laptop_app/auth/LoginAndRegister.dart';
+import 'package:laptop_app/models/restuarent.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const Myapp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Restuarent(),
+        ),
+      ],
+      child: const Myapp(),
+    ),
+  );
 }
 
 class Myapp extends StatelessWidget {

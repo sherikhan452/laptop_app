@@ -3,8 +3,11 @@ import 'package:laptop_app/Screen/My_Current_Location.dart';
 import 'package:laptop_app/Screen/My_Drawer.dart';
 import 'package:laptop_app/Screen/My_Sliver_app_bar.dart';
 import 'package:laptop_app/Screen/My_Tab_bar.dart';
+import 'package:laptop_app/Screen/My_food_tile.dart';
 import 'package:laptop_app/Screen/MydiscriptionBox.dart';
 import 'package:laptop_app/models/food.dart';
+import 'package:laptop_app/models/restuarent.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,6 +34,25 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fulMenu) {
+    return fulMenu.where((food) => food.category == category).toList();
+  }
+
+  List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
+    return FoodCategory.values.map((category) {
+      List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
+      return ListView.builder(
+          itemCount: categoryMenu.length,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index) {
+            final food = categoryMenu[index];
+            return FoodTile(food: food, onTap: () {});
+          });
+    }).toList();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrawer(),
@@ -52,30 +74,11 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("First Tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("Second Tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("Third Tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("Third Tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("Third Tab items"),
-            ),
-          ],
+        body: Consumer<Restuarent>(
+          builder: (context, restuarent, child) => TabBarView(
+            controller: _tabController,
+            children: getFoodInThisCategory(restuarent.menu),
+          ),
         ),
       ),
     );

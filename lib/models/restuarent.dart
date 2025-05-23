@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:laptop_app/models/food.dart';
 
-class Restuarent {
+class Restuarent extends ChangeNotifier {
   final List<Food> _menu = [
     Food(
       name: "Classic Cheese",
@@ -67,7 +68,7 @@ class Restuarent {
       description: "A juicy peet baty",
       imgPath: "lib/assests/Images/Laptopone.jpg",
       price: 0.99,
-      category: FoodCategory.burgers,
+      category: FoodCategory.salad,
       availableAddons: [
         Addon(name: "Extra Cheese", price: 30.9),
         Addon(name: "Extra Cheese", price: 30.9),
@@ -79,7 +80,7 @@ class Restuarent {
       description: "A juicy peet baty",
       imgPath: "lib/assests/Images/Laptopone.jpg",
       price: 0.99,
-      category: FoodCategory.burgers,
+      category: FoodCategory.salad,
       availableAddons: [
         Addon(name: "Extra Cheese", price: 30.9),
         Addon(name: "Extra Cheese", price: 30.9),
@@ -91,7 +92,7 @@ class Restuarent {
       description: "A juicy peet baty",
       imgPath: "lib/assests/Images/Laptopone.jpg",
       price: 0.99,
-      category: FoodCategory.burgers,
+      category: FoodCategory.salad,
       availableAddons: [
         Addon(name: "Extra Cheese", price: 30.9),
         Addon(name: "Extra Cheese", price: 30.9),
@@ -103,7 +104,187 @@ class Restuarent {
       description: "A juicy peet baty",
       imgPath: "lib/assests/Images/Laptopone.jpg",
       price: 0.99,
-      category: FoodCategory.burgers,
+      category: FoodCategory.salad,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.salad,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.desserts,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.sides,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.desserts,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.desserts,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.desserts,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.drinks,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.drinks,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.drinks,
+      availableAddons: [
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+        Addon(name: "Extra Cheese", price: 30.9),
+      ],
+    ),
+    Food(
+      name: "Classic Cheese",
+      description: "A juicy peet baty",
+      imgPath: "lib/assests/Images/Laptopone.jpg",
+      price: 0.99,
+      category: FoodCategory.drinks,
       availableAddons: [
         Addon(name: "Extra Cheese", price: 30.9),
         Addon(name: "Extra Cheese", price: 30.9),
