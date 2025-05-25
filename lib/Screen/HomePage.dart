@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laptop_app/Screen/Food_Page.dart';
 import 'package:laptop_app/Screen/My_Current_Location.dart';
 import 'package:laptop_app/Screen/My_Drawer.dart';
 import 'package:laptop_app/Screen/My_Sliver_app_bar.dart';
@@ -39,17 +40,28 @@ class _HomePageState extends State<HomePage>
   }
 
   List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
-    return FoodCategory.values.map((category) {
-      List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
-      return ListView.builder(
+    return FoodCategory.values.map(
+      (category) {
+        List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
+        return ListView.builder(
           itemCount: categoryMenu.length,
           physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.zero,
           itemBuilder: (context, index) {
             final food = categoryMenu[index];
-            return FoodTile(food: food, onTap: () {});
-          });
-    }).toList();
+            return FoodTile(
+              food: food,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodPage(food: food),
+                ),
+              ),
+            );
+          },
+        );
+      },
+    ).toList();
   }
 
   @override
