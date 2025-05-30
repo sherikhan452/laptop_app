@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/MyCartTile.dart';
+import 'package:laptop_app/Screen/Mybutton.dart';
+import 'package:laptop_app/Screen/Payment_page.dart';
 import 'package:laptop_app/models/restuarent.dart';
 import 'package:provider/provider.dart';
 
@@ -48,15 +50,45 @@ class CartPage extends StatelessWidget {
           ),
           body: Column(
             children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: userCart.length,
-                  itemBuilder: (context, index) {
-                    final cartItem = userCart[index];
+              //list of column
 
-                    return MyCartTile(cartItem: cartItem);
-                  },
+              Expanded(
+                child: Column(
+                  children: [
+                    userCart.isEmpty
+                        ? const Expanded(
+                            child: Center(
+                              child: Text("Cart is Empty....."),
+                            ),
+                          )
+                        : Expanded(
+                            child: ListView.builder(
+                              itemCount: userCart.length,
+                              itemBuilder: (context, index) {
+                                final cartItem = userCart[index];
+
+                                return MyCartTile(cartItem: cartItem);
+                              },
+                            ),
+                          )
+                  ],
                 ),
+              ),
+
+              //Pay Button
+
+              MyButton(
+                onTop: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PaymentPage(),
+                  ),
+                ),
+                text: "Go to Checkout",
+              ),
+
+              const SizedBox(
+                height: 24,
               )
             ],
           ),
