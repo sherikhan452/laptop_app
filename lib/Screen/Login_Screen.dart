@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/HomePage.dart';
 import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
+import 'package:laptop_app/Services/auth/AuthServices.dart';
 
 class Loginscreen extends StatefulWidget {
   final Function()? onTap;
@@ -12,18 +13,25 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPass = TextEditingController();
   @override
-  void login() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ));
+  void login() async {
+    final _authService = AuthServices();
+
+    try {
+      await _authService.signInWithEmailPassword(txtEmail.text, txtPass.text);
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
   }
 
   Widget build(BuildContext context) {
-    TextEditingController txtEmail = TextEditingController();
-    TextEditingController txtPass = TextEditingController();
     return Scaffold(
       body: Center(
         child: Column(

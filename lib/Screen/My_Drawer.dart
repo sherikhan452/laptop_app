@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/MySpdrawer.dart';
 import 'package:laptop_app/Screen/SettingPage.dart';
+import 'package:laptop_app/Services/auth/AuthServices.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void logout() {
+      final _authService = AuthServices();
+      _authService.signOut();
+    }
+
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
@@ -43,7 +49,7 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             text: "L O G O U T",
             icon: Icons.logout,
-            onTap: () {},
+            onTap: () => logout(),
           )
         ],
       ),

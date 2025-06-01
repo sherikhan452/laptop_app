@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laptop_app/Screen/Mybutton.dart';
 import 'package:laptop_app/Screen/TextField.dart';
+import 'package:laptop_app/Services/auth/AuthServices.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -11,11 +12,35 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPass = TextEditingController();
+  TextEditingController confPass = TextEditingController();
+
+  void register() async {
+    final _authService = AuthServices();
+    if (txtPass.text == confPass.text) {
+      try {
+        await _authService.signUpWithEmailPassword(txtEmail.text, txtPass.text);
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Password Dont Matched"),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController txtEmail = TextEditingController();
-    TextEditingController txtPass = TextEditingController();
-    TextEditingController confPass = TextEditingController();
     return Scaffold(
       body: Center(
         child: Column(
@@ -53,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Textfield(
-                textController: txtPass,
+                textController: confPass,
                 hintText: "Password",
                 obsecTxt: true,
               ),
@@ -61,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(
               height: 30,
             ),
-            MyButton(onTop: () {}, text: "Sign In"),
+            MyButton(onTop: () => register(), text: "Register"),
             const SizedBox(
               height: 30,
             ),
